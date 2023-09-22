@@ -1,10 +1,10 @@
-import { Book, CreateBook } from "../protocols/book";
+import { Book } from "@prisma/client";
+import { CreateBook } from "../protocols/book";
 import { CreateReview } from "../protocols/review";
 import prisma from "../database/index";
 
-import connection from "../database";
-
 export async function getBooks(): Promise<Book[]> {
+  
   const books = await prisma.book.findMany();
   return books;
 }
@@ -16,7 +16,7 @@ export async function getBook(id: number): Promise<Book> {
   return book;
 }
 
-export async function createBook(book: CreateBook) {
+export async function createBook(book: CreateBook): Promise<Book> {
   return await prisma.book.create({
     data : book
   });

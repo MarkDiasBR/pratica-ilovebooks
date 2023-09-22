@@ -5,4 +5,4 @@ export type Review = {
   grade: number;
 };
 
-export type CreateReview = Omit<Review, "id">;
+export type CreateReview = Omit<Review, 'id'>;

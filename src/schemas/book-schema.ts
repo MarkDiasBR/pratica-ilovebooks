@@ -5,5 +5,6 @@ export const bookSchema = joi.object<CreateBook>({
   title: joi.string().required(),
   author: joi.string().required(),
   publisher: joi.string().required(),
+  cover: joi.string().uri().required(),
   purchaseDate: joi.date().required()
 });
